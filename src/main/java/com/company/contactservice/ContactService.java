@@ -1,6 +1,6 @@
 package com.company.contactservice;
 
-import com.company.Contact;
+import com.company.*;
 
 import java.util.List;
 

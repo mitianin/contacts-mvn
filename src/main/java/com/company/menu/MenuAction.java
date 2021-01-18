@@ -1,7 +1,5 @@
 package com.company.menu;
 
-import com.company.Contact;
-
 public interface MenuAction {
     void doAction();
 

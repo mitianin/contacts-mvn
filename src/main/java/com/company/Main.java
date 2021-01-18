@@ -1,6 +1,7 @@
 package com.company;
 
-import com.company.contactservice.MemoryContactService;
+import com.company.contactservice.ContactService;
+import com.company.contactservice.FileContactService;
 import com.company.menu.Menu;
 import com.company.menu.actions.*;
 
@@ -11,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
         Scanner s = new Scanner(System.in);
-        MemoryContactService memory = new MemoryContactService();
+        ContactService file = new FileContactService("contacts.txt");
 
-        menu.addAction(new ReadAllContactsMenuAction(memory));
-        menu.addAction(new AddContactMenuAction(memory, s));
-        menu.addAction(new RemoveContactMenuAction(memory, s));
-        menu.addAction(new GetContactByNumberMenuAction(memory, s));
-        menu.addAction(new GetContactByNameMenuActions(memory, s));
+        menu.addAction(new ReadAllContactsMenuAction(file));
+        menu.addAction(new AddContactMenuAction(file, s));
+        menu.addAction(new RemoveContactMenuAction(file, s));
+        menu.addAction(new GetContactByNameMenuActions(file, s));
+        menu.addAction(new GetContactByNumberMenuAction(file, s));
         menu.addAction(new CloseMenuAction());
 
         while (true) {

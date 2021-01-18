@@ -28,7 +28,7 @@ public class MemoryContactService implements ContactService {
     @Override
     public List<Contact> getContactByNumber(String value) {
         return list.stream().
-                filter(contact -> contact.getPhone().contains(value)).
+                filter(contact -> contact.getContactData().contains(value)).
                 collect(Collectors.toList());
     }
 

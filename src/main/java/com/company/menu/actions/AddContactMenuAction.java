@@ -1,10 +1,10 @@
 package com.company.menu.actions;
 
 import com.company.Contact;
+import com.company.EnumContactData;
 import com.company.contactservice.ContactService;
 import com.company.menu.MenuAction;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class AddContactMenuAction implements MenuAction {
@@ -20,13 +20,15 @@ public class AddContactMenuAction implements MenuAction {
     public void doAction() {
         System.out.println("enter contact NAME");
         String name = s.nextLine();
-        System.out.println("enter contact PHONE in format +380*********");
-        String phone = s.nextLine();
+        System.out.println("enter contact PHONE in format +380********* or MAIL");
+        String data = s.nextLine();
 
-        if (!phone.trim().matches("\\+380\\d{9}")) {
-            System.out.println("Invalid phone format");
+        if (data.trim().matches("\\+380\\d{9}")) {
+            cs.add(new Contact(name, data, EnumContactData.PHONE));
+        } else if (data.trim().matches(".+@gmail\\.com")) {
+            cs.add(new Contact(name, data, EnumContactData.MAIL));
         } else {
-            cs.add(new Contact(name, phone));
+            System.out.println("Invalid phone format");
         }
 
     }

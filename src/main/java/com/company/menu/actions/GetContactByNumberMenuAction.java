@@ -1,10 +1,8 @@
 package com.company.menu.actions;
 
-import com.company.Contact;
 import com.company.contactservice.ContactService;
 import com.company.menu.MenuAction;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class GetContactByNumberMenuAction implements MenuAction {
