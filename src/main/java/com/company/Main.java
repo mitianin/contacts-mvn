@@ -1,7 +1,7 @@
 package com.company;
 
+import com.company.contactservice.ContactNioService;
 import com.company.contactservice.ContactService;
-import com.company.contactservice.FileContactService;
 import com.company.menu.Menu;
 import com.company.menu.actions.*;
 
@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
         Scanner s = new Scanner(System.in);
-        ContactService file = new FileContactService("contacts.txt");
+        ContactService file = new ContactNioService("contacts.txt");
 
         menu.addAction(new ReadAllContactsMenuAction(file));
         menu.addAction(new AddContactMenuAction(file, s));
